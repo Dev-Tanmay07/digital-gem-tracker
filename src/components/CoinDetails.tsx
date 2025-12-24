@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { ArrowUp, ArrowDown, TrendingUp, BarChart3, Coins, Activity, X, RefreshCw } from 'lucide-react';
 import { getCoinData, getMarketChart, formatPrice, formatMarketCap, formatNumber, CoinData, MarketChartData } from '@/lib/coingecko';
 import { PriceChart } from './PriceChart';
+import { CoinQuestionBar } from './CoinQuestionBar';
 import { cn } from '@/lib/utils';
 
 interface CoinDetailsProps {
@@ -214,6 +215,23 @@ export function CoinDetails({ coinId, onClose }: CoinDetailsProps) {
           </p>
         </div>
       </div>
+
+      {/* Question Bar */}
+      <CoinQuestionBar
+        coinName={coinData.name}
+        coinSymbol={coinData.symbol.toUpperCase()}
+        coinData={{
+          currentPrice: market_data.current_price.usd,
+          priceChange24h: market_data.price_change_percentage_24h,
+          marketCap: market_data.market_cap.usd,
+          volume24h: market_data.total_volume.usd,
+          circulatingSupply: market_data.circulating_supply,
+          rank: market_data.market_cap_rank,
+          ath: market_data.ath.usd,
+          high24h: market_data.high_24h.usd,
+          low24h: market_data.low_24h.usd,
+        }}
+      />
     </div>
   );
 }
