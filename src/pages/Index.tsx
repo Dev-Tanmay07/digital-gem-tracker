@@ -1,11 +1,55 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from 'react';
+import { Coins, Zap } from 'lucide-react';
+import { SearchBar } from '@/components/SearchBar';
+import { CoinDetails } from '@/components/CoinDetails';
+import { TrendingCoins } from '@/components/TrendingCoins';
 
 const Index = () => {
+  const [selectedCoin, setSelectedCoin] = useState<string | null>(null);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Background glow effects */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-pulse-slow delay-1000" />
+      </div>
+
+      <div className="relative z-10 container mx-auto px-4 py-8 md:py-16">
+        {/* Header */}
+        <header className="text-center mb-12">
+          <div className="inline-flex items-center gap-3 mb-6">
+            <div className="p-3 bg-primary/10 rounded-2xl glow-primary animate-float">
+              <Coins className="w-10 h-10 text-primary" />
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold">
+              <span className="gradient-text">Crypto</span>
+              <span className="text-foreground">Pulse</span>
+            </h1>
+          </div>
+          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto flex items-center justify-center gap-2">
+            <Zap className="w-5 h-5 text-primary" />
+            Real-time cryptocurrency data at your fingertips
+          </p>
+        </header>
+
+        {/* Search */}
+        <SearchBar onSelectCoin={setSelectedCoin} />
+
+        {/* Selected Coin Details */}
+        {selectedCoin && (
+          <div className="mt-8">
+            <CoinDetails coinId={selectedCoin} onClose={() => setSelectedCoin(null)} />
+          </div>
+        )}
+
+        {/* Trending Coins */}
+        {!selectedCoin && <TrendingCoins onSelectCoin={setSelectedCoin} />}
+
+        {/* Footer */}
+        <footer className="mt-16 text-center text-sm text-muted-foreground">
+          <p>Powered by CoinGecko API • Data refreshes every 30 seconds</p>
+        </footer>
       </div>
     </div>
   );
