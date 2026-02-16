@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Coins, Zap } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { SearchBar } from '@/components/SearchBar';
 import { CoinDetails } from '@/components/CoinDetails';
 import { TrendingCoins } from '@/components/TrendingCoins';
@@ -47,8 +48,16 @@ const Index = () => {
         {!selectedCoin && <TrendingCoins onSelectCoin={setSelectedCoin} />}
 
         {/* Footer */}
-        <footer className="mt-16 text-center text-sm text-muted-foreground">
+        <footer className="mt-16 text-center text-sm text-muted-foreground space-y-3">
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/about" className="hover:text-foreground transition-colors">About</Link>
+            <Link to="/contact" className="hover:text-foreground transition-colors">Contact</Link>
+            <Link to="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-foreground transition-colors">Terms of Service</Link>
+            <Link to="/disclaimer" className="hover:text-foreground transition-colors">Disclaimer</Link>
+          </div>
           <p>Powered by CoinGecko API • Data refreshes every 30 seconds</p>
+          <p>© {new Date().getFullYear()} CryptoPulse. All rights reserved.</p>
         </footer>
       </div>
     </div>
