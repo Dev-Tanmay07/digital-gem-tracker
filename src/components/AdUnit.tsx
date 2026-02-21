@@ -6,7 +6,7 @@ declare global {
   }
 }
 
-export function BottomAd() {
+export function InFeedAd() {
   const adRef = useRef<HTMLModElement>(null);
   const pushed = useRef(false);
 

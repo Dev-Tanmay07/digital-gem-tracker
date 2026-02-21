@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { SearchBar } from '@/components/SearchBar';
 import { CoinDetails } from '@/components/CoinDetails';
 import { TrendingCoins } from '@/components/TrendingCoins';
-import { BottomAd } from '@/components/AdUnit';
+import { InFeedAd } from '@/components/AdUnit';
 
 const Index = () => {
   const [selectedCoin, setSelectedCoin] = useState<string | null>(null);
@@ -45,12 +45,11 @@ const Index = () => {
           </div>
         )}
 
-        {/* Bottom Ad */}
-        {!selectedCoin && <BottomAd />}
+        {/* In-Feed Ad */}
+        {!selectedCoin && <InFeedAd />}
 
         {/* Trending Coins */}
         {!selectedCoin && <TrendingCoins onSelectCoin={setSelectedCoin} />}
-
 
         {/* Footer */}
         <footer className="mt-16 text-center text-sm text-muted-foreground space-y-3">
