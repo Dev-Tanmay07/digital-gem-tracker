@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { SearchBar } from '@/components/SearchBar';
 import { CoinDetails } from '@/components/CoinDetails';
 import { TrendingCoins } from '@/components/TrendingCoins';
-import { InFeedAd } from '@/components/AdUnit';
+import { BottomAd } from '@/components/AdUnit';
 
 const Index = () => {
   const [selectedCoin, setSelectedCoin] = useState<string | null>(null);
@@ -45,8 +45,8 @@ const Index = () => {
           </div>
         )}
 
-        {/* In-Feed Ad */}
-        {!selectedCoin && <InFeedAd />}
+        {/* Bottom Ad */}
+        {!selectedCoin && <BottomAd />}
 
         {/* Trending Coins */}
         {!selectedCoin && <TrendingCoins onSelectCoin={setSelectedCoin} />}
