@@ -27,7 +27,7 @@ export function InFeedAd() {
         className="adsbygoogle"
         ref={adRef}
         style={{ display: 'block' }}
-        data-ad-format="autorelaxed"
+        data-ad-format="fluid"
         data-ad-client="ca-pub-8774993022306712"
         data-ad-slot="3749621129"
       />
