@@ -38,6 +38,9 @@ const Index = () => {
         {/* Search */}
         <SearchBar onSelectCoin={setSelectedCoin} />
 
+        {/* In-Feed Ad */}
+        <InFeedAd />
+
         {/* Selected Coin Details */}
         {selectedCoin && (
           <div className="mt-8">
@@ -45,8 +48,6 @@ const Index = () => {
           </div>
         )}
 
-        {/* In-Feed Ad */}
-        {!selectedCoin && <InFeedAd />}
 
         {/* Trending Coins */}
         {!selectedCoin && <TrendingCoins onSelectCoin={setSelectedCoin} />}
