@@ -35,3 +35,33 @@ export function InFeedAd() {
     </div>
   );
 }
+
+export function BannerAd() {
+  const adRef = useRef<HTMLModElement>(null);
+  const pushed = useRef(false);
+
+  useEffect(() => {
+    if (adRef.current && !pushed.current) {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+        pushed.current = true;
+      } catch (e) {
+        console.error('Banner ad push error:', e);
+      }
+    }
+  }, []);
+
+  return (
+    <div className="my-6">
+      <ins
+        className="adsbygoogle"
+        ref={adRef}
+        style={{ display: 'block' }}
+        data-ad-client="ca-pub-8774993022306712"
+        data-ad-slot="7003605894"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
+    </div>
+  );
+}
