@@ -29,7 +29,7 @@ export function InFeedAd() {
         style={{ display: 'block' }}
         data-ad-format="fluid"
         data-ad-layout-key="-fb+5w+4e-db+86"
-        data-ad-client="ca-pub-8774993022306712"
+        data-ad-client="ca-pub-8908365852983702"
         data-ad-slot="7523869707"
       />
     </div>
@@ -57,7 +57,7 @@ export function BannerAd() {
         className="adsbygoogle"
         ref={adRef}
         style={{ display: 'block' }}
-        data-ad-client="ca-pub-8774993022306712"
+        data-ad-client="ca-pub-8908365852983702"
         data-ad-slot="7003605894"
         data-ad-format="auto"
         data-full-width-responsive="true"
